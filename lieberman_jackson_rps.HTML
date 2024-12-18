@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><strong>Jackson's Rock Paper Scissors</strong></title>
+</head>
+<h1 style="color:purple; text-align:center; background-color: aliceblue;">Jackson's Rock Paper Scissors</h1>
+<p></p>
+<p style="color:purple; font-size: 200%;  background-color: aliceblue; text-align:center;">Rock, Paper, Scissors, Shoot!</p>
+<p></p>
+
+<body style="background-image:url(https://static.vecteezy.com/system/resources/previews/000/691/499/non_2x/rock-paper-scissors-seamless-pattern-vector.png);">
+    <center>
+    <button onclick="play('Rock')"><img src= "https://wrpsa.com/wp-content/uploads/2021/08/rock-200x187.png" alt= "Rock" style= "width:333px; height:333px;" ></button>
+    <button onclick="play('Paper')"><img src= "https://wrpsa.com/wp-content/uploads/2021/08/paper-200x187.png" alt= "Paper" style= "width:333px; height:333px;" ></button>
+    <button onclick="play('Scissors')"><img src= "https://wrpsa.com/wp-content/uploads/2021/08/scissors-200x187.png" alt="Scissors" style= "width:333px; height:333px;" ></button>
+    </center>
+  <p style = "color:purple; font-size: 250%; background-color: aliceblue; text-align:center;">Player Score: <span id="playerScore">0</span></p>
+  <p style = "color:purple; font-size: 250%; background-color: aliceblue; text-align:center;">Bot Score: <span id="botScore">0</span></p>
+
+  <script>
+    let playerScore = 0;
+    let botScore = 0;
+    const choices = ['Rock', 'Paper', 'Scissors']
+    const wins = ['RockScissors', 'ScissorsPaper', 'PaperRock'];
+
+    function play(playerChoice) {
+        const botChoice = choices[Math.floor(Math.random()*choices.length)];
+        
+        if (playerChoice == botChoice) {
+            alert(`You chose ${playerChoice}, Bot chose ${botChoice}: You tied!`);
+        } else if (wins.includes(playerChoice+botChoice)) {
+            alert(`You chose ${playerChoice}, Bot chose ${botChoice}: You won!`);
+            playerScore++;
+        } else {
+            alert(`You chose ${playerChoice}, Bot chose ${botChoice}: You lost!`);
+            botScore++;
+        }
+    document.getElementById("playerScore").textContent = playerScore;
+    document.getElementById("botScore").textContent = botScore;
+   }
+  </script>
+</body>
